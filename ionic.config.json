@@ -1,0 +1,7 @@
+{
+  "name": "Keestash",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
