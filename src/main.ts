@@ -1,8 +1,8 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router';
 
-import { IonicVue } from '@ionic/vue';
+import {IonicVue} from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -22,11 +22,22 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import store from './store/index';
 
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
+import {fas} from '@fortawesome/free-solid-svg-icons'
+import { dom } from '@fortawesome/fontawesome-svg-core'
+
+library.add(fas)
+
+dom.watch()
 const app = createApp(App)
-  .use(IonicVue)
-  .use(router);
-  
+    .use(IonicVue)
+    .use(router)
+    .use(store)
+    .component('font-awesome-icon', FontAwesomeIcon);
+
 router.isReady().then(() => {
-  app.mount('#app');
+    app.mount('#app');
 });
